@@ -1,0 +1,114 @@
+!!! 5
+
+%html
+
+  %head
+  
+    %title Wasatch Education
+    
+    = Haml::Engine.new(File.read('/Volumes/Macintosh HD/Applications/MAMP/htdocs/wasatch/_header.html.haml')).render    
+  
+    %link(rel="stylesheet" media="all and (min-width:1px)" href="css/home.css")
+    
+  %body
+    %header.main
+      %p(class="sign-in")
+        %a(href="dashboard.html") Sign&nbsp;in
+      %nav
+        %a.first Plans & Pricing
+      %h1(class="main") 
+        %a(href="index.html") Wasatch Education
+  
+    .main
+    
+      %section.promo
+        .promo
+          %h1
+            %strong AP,
+            %strong IB,
+            and 
+            %strong A Level <br />
+            test prep &amp; study support
+          .signup
+            %p 
+              learn more below 
+              %span or
+              %a.btn.btn-success.btn-large(href="dashboard.html") Sign up
+        %img(src="img/main4.png" alt="")
+      
+      %section.description
+        %p.leader 
+          %span.motto Your best resource for advanced chemistry
+          Course study help 
+          %em or 
+          In-depth exam review
+          
+      %section.details.videos
+        .desc
+          %h3 Work at your own pace
+          %p Over 200 high-quality videos covering the essential topics and skills. Concepts are thoroughly explained and demonstrated, and example problems are worked out in an easy-to-follow format.
+          %a.example.modal-video(data-toggle="modal" href="#myModal") View example video
+        %a.image.modal-video(data-toggle="modal" href="#myModal")
+          %img(src="img/home-video.jpg" alt="a professor demonstrating a chemistry experiment (image taken from one of the Wasatch Education videos")
+        
+      #myModal.modal.hide.fade
+        .modal-body
+          %video(width="100%" height="100%" id="player1" poster="media/2-Charles-Law.png" controls="controls" preload="none")
+            %source(type="video/m4v" src="media/charles-law.m4v")
+            %source(type="video/webm" src="media/charles-law.webm")
+        .modal-footer
+          %a(href="#" class="btn btn-primary" data-dismiss="modal") Close
+  
+      %section.details.practice
+        .desc
+          %h3 Get real-world practice
+          %p Lots of practice problems that include hints, feedback, and automatic grading, as well as practice exams that simulate the actual test-taking experience
+          %a.example(href="#") VIEW EXAMPLE PROBLEMS
+        %a.image(href="#")
+          %img(src="img/home-practice.png" alt="A screen shot of the practice environment")
+  
+      %section.details.study-guides
+        .desc
+          %h3 Understand concepts in-depth
+          %p A study guide is included with each video to help students take notes and identify key concepts
+          %a.example(href="docs/Introduction-To-Gases.pdf") VIEW EXAMPLE STUDY GUIDE
+        %a.image(href="docs/Introduction-To-Gases.pdf")
+          %img(src="img/home-study2.png" alt="A screen shot of a study guide")
+      
+      %section.details.tutors
+        .desc
+          %h3 Get live help
+          %p Access live tutors for personalized instruction, as well as a monitored community forum for each subject which allows students to ask and answer questions, see hints from other students, and share experiences
+          %a.example(href="#") SEE PLANS AND PRICING
+        %a.image(href="#")
+          %img(src="img/computer2.jpg" alt="stock-photo-6219140-working-on-the-computer")
+        
+      %section.details.diagnostics
+        .desc
+          %h3 Create personalized study plans
+          %p Diagnostic exams identify areas of strength and weakness to help you focus better on the areas that need work
+          %a.example(href="#") VIEW EXAMPLES    
+        %a.image(href="#")
+          %img(src="img/home-diagnostic.png" alt="A screen shot of a diagnostics exam")
+  
+      %section.details.study-maps
+        .desc
+          %h3 Track your progress
+          %p Each subject in the AP, IB, or A Level curriculum is organized into a Topic Map for a concise overview and for easy access to specific subjects. Color coding is used to track topics that have been covered or topics that still need work.
+          %a.example(href="#") VIEW STUDY MAPS
+        %a.image(href="#")
+          %img(src="img/home-study.png" alt="A screen shot of a study map")
+  
+      %section.end
+        %a.btn.btn-success.btn-large(href="dashboard.html") Sign up
+        or
+        %a(href="#") see pricing details
+    %footer.main
+      %p &copy; Copyright 2012
+  
+    %script(src="js/jquery.min.js")
+    %script(src="mediaelement/build/mediaelement-and-player.min.js")
+    %script(src="js/plugins.js")
+    %script(src="js/script.js")
+    
+    
