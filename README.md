@@ -1,4 +1,0 @@
-wasatch
-=======
-
-Wasatch Education development

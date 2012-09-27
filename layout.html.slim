@@ -1,0 +1,7 @@
+doctype html
+html
+  head
+    title = @title
+    link rel="stylesheet" media="all and (min-width:1px)" href="styles/#{@css_file}.css"
+  body
+    == yield

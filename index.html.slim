@@ -1,0 +1,42 @@
+header.main
+  p.sign-in
+    a href="dashboard.html" Sign in
+  
+  nav
+    a.first Plans & Pricing
+  
+  h1.main
+    a href="index.html" Wasatch Education
+
+.main
+  section.promo
+    .promo
+      h1
+        markdown:
+          **AP**, **IB**, and **A Level**  
+          test prep & study support
+      
+      .signup
+        p
+          | learn more below
+          span or
+          a.btn.btn-success.btn-large href="dashboard.html" Sign up
+      
+    img src="img/main4.png" alt=""
+    
+  section.description
+    p.leader
+      span.motto Your best resource for advanced chemistry
+      | Course study help
+      em or
+      | In-depth exam review
+      
+  - @detail_sections.each do |section|
+    section.details class=section.class
+      .desc
+        h3 = section.title
+        p = section.desc
+        a.example href=section.url = section.link
+    
+      a.image href=section.url
+        img src="img/#{section.img_src}" alt=section.img_alt

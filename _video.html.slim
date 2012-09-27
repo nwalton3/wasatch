@@ -1,0 +1,15 @@
+section.details.videos
+  .desc
+    h3 Work at your own pace
+    p Over 200 high-quality videos covering the essential topics and skills. Concepts are thoroughly explained and demonstrated, and example problems are worked out in an easy-to-follow format.
+    a.example.modal-video data-toggle="modal" href="#myModal" View example video
+  a.image.modal-video data-toggle="modal" href="#myModal"
+    img src="img/home-video.jpg" alt="a professor demonstrating a chemistry experiment (image taken from one of the Wasatch Education videos"
+
+#myModal.modal.hide.fade
+  .modal-body
+    video#player1 width="100%" height="100%" poster="media/2-Charles-Law.png" controls="controls" preload="none"
+      source type="video/m4v" src="media/charles-law.m4v"
+      source type="video/webm" src="media/charles-law.webm"
+  .modal-footer
+    a.btn.btn-primary href="#" data-dismiss="modal" Close
