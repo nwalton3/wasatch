@@ -5,3 +5,9 @@ html
     link rel="stylesheet" media="all and (min-width:1px)" href="styles/#{@css_file}.css"
   body
     == yield
+    
+    footer.main
+      p &copy; Copyright 2012
+    
+    - @scripts.each do |script|
+      script src="js/#{script}"

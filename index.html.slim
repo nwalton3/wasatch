@@ -30,7 +30,9 @@ header.main
       | Course study help
       em or
       | In-depth exam review
-      
+  
+  == render "_video.html.slim"
+  
   - @detail_sections.each do |section|
     section.details class=section.class
       .desc
@@ -40,3 +42,8 @@ header.main
     
       a.image href=section.url
         img src="img/#{section.img_src}" alt=section.img_alt
+  
+  section.end
+    a.btn-btn-success.btn-large href="dashboard.html" Sign up
+    | or
+    a href="#" see pricing details

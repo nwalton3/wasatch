@@ -10,6 +10,11 @@ layout 'layout.html.slim'
 
 root = Dir.pwd
 
+# Scripts
+before /.*html\.slim/ do
+  @scripts = %w(jquery.min.js mediaelement-and-player.min.js plugins.js script.js)
+end
+
 # Index
 before 'index.html.slim' do
   @title = "Wasatch Education"
