@@ -3,17 +3,15 @@ require 'bootstrap-sass'
 require 'csv'
 require 'ostruct'
 
-# Compass support
+# Config
 Stasis::Options.set_template_option 'scss', { :load_paths => Compass.configuration.sass_load_paths }
 
-# Layout
 layout 'layout.html.slim'
-
 root = Dir.pwd
 
 # Assets
 before /.*html\.slim/ do
-  @stylesheets = ["mobile", "bootstrap", "mediaelement/build/mediaelementplayer.min", "style"]
+  @stylesheets = ["mobile", "mediaelement/build/mediaelementplayer.min", "style"]
   @scripts = ["jquery.min.js", "mediaelement-and-player.min.js", "plugins.js", "script.js"]
 end
 
@@ -23,7 +21,7 @@ before 'index.html.slim' do
   @css_file = "home"
   @detail_sections = []
   
-  CSV.read("#{root}/data/index-details.csv").each do |row|
+  CSV.read(File.join(root, 'data/index-details.csv')).each do |row|
     detail = OpenStruct.new
     
     detail.class = row[0]

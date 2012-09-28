@@ -1,0 +1,107 @@
+section {
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; }
+
+span.title {
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: .85em; }
+
+span.callout {
+  font-weight: 600;
+  font-size: 1.1em; }
+
+.profile a, .forum a {
+  display: block; }
+  .profile a.btn, .forum a.btn {
+    display: inline-block; }
+
+.profile {
+  padding-left: 3em;
+  background: transparent url("../img/badge-1.png") 0px 2em no-repeat; }
+  .profile h2 {
+    margin-left: -3em; }
+  .profile .achievements {
+    padding-bottom: .75em; }
+
+.forum > div {
+  padding: 0 0 .75em 3em; }
+.forum .achievements {
+  background: transparent url("../img/badge-2.png") 0px 0px no-repeat; }
+.forum .commenter {
+  background: transparent url("../img/badge-3.png") 0px 0px no-repeat; }
+
+.exams td {
+  padding: 0 .75em; }
+  .exams td.done {
+    background: transparent url("../img/checkmark.png") top left no-repeat; }
+
+section.related {
+  margin: 0;
+  clear: none;
+  width: 82%;
+  margin-left: 9%;
+  float: none; }
+  section.related > ol > li {
+    padding-left: 3.75em; }
+    section.related > ol > li.video, section.related > ol > li.problems {
+      background-position: 2.25em 0px; }
+
+/* 300 px */
+/* 600 px */
+/* 900 px */
+@media all and (min-width: 900px) {
+  .main {
+    position: relative;
+    overflow: hidden;
+    *zoom: 1; }
+
+  section {
+    margin: 0;
+    width: 100%; }
+
+  .profile {
+    background: transparent url("../img/badge-1.png") 0px 4.3em no-repeat; }
+
+  .profile, .forum {
+    width: 39%;
+    float: left;
+    margin: 0 0 0 9%;
+    clear: left; }
+
+  section.related {
+    width: 100%;
+    margin: 0; }
+
+  section.study-map {
+    overflow: hidden;
+    *zoom: 1;
+    width: 82%;
+    margin-left: 9%; }
+    section.study-map > ol {
+      width: 46%;
+      float: left; }
+      section.study-map > ol.standard {
+        margin-right: 7%; }
+
+  .floater {
+    width: 39%;
+    position: absolute;
+    top: 0;
+    right: 9%; } }
+@media all and (min-width: 1160px) {
+  .profile, .forum {
+    width: 27.5%;
+    clear: none;
+    margin: 0; }
+
+  .profile {
+    margin-right: 2.3%;
+    margin-left: 9%; }
+
+  .floater {
+    width: 22.6388%; }
+
+  section.study-map {
+    width: 57.3%; } }
