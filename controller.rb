@@ -1,4 +1,5 @@
 require 'compass'
+require 'bootstrap-sass'
 require 'csv'
 require 'ostruct'
 
@@ -10,9 +11,10 @@ layout 'layout.html.slim'
 
 root = Dir.pwd
 
-# Scripts
+# Assets
 before /.*html\.slim/ do
-  @scripts = %w(jquery.min.js mediaelement-and-player.min.js plugins.js script.js)
+  @stylesheets = ["mobile", "bootstrap", "mediaelement/build/mediaelementplayer.min", "style"]
+  @scripts = ["jquery.min.js", "mediaelement-and-player.min.js", "plugins.js", "script.js"]
 end
 
 # Index
