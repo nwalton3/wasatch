@@ -1,11 +1,27 @@
 /* Script */
 
 
+
+/* ON LOAD */
+
 $(function(){ // on page load
-	
+		
 	// Initialize stuff
 	$('video,audio').mediaelementplayer(/* Options */);
+	
 	$('#myModal').modal({show: false});
+	$('a.modal-video')
+    .on('click', function(e){
+      startPlayer('#myModal iframe');
+    });
+	$('#myModal .modal-footer')
+	  .on('click', '.btn-closeVid', function(e){
+      pausePlayer('#myModal iframe');
+	  });
+	$('body')
+	  .on('click', '.modal-backdrop', function(e){
+      pausePlayer('#myModal iframe');
+	  });
 		
 	//$('.promo h1').fitText(0.9, {minFontSize: '24px', maxFontSize: '52px'});
 	
@@ -50,7 +66,7 @@ $(function(){ // on page load
     // Go to the link if it's not null	   
 	   if(href !== "#" && href !== "" && href !== null) {
 	     window.location = href;
-  	   return;
+	     return;
 	   }
 	   
 		e.preventDefault();
@@ -73,3 +89,28 @@ $(function(){ // on page load
 	});
 
 });
+
+
+
+/* FUNCTIONS */
+
+function startPlayer(frame) {
+  var iframe = $(frame)[0];
+  var player = $f(iframe);
+  
+  player.api('play');
+}
+
+function pausePlayer(frame) {
+  var iframe = $(frame)[0];
+  var player = $f(iframe);
+  
+  if(Modernizr.postmessage) {
+     player.api('pause');       
+  } else {
+    var src = $('#myModal iframe').attr('src');
+    $('#myModal iframe').attr('src',''); 
+    $('#myModal iframe').attr('src',src);
+  }
+
+}

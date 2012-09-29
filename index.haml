@@ -53,11 +53,9 @@
         
       #myModal.modal.hide.fade
         .modal-body
-          %video(width="100%" height="100%" id="player1" poster="media/2-Charles-Law.png" controls="controls" preload="none")
-            %source(type="video/m4v" src="media/charles-law.m4v")
-            %source(type="video/webm" src="media/charles-law.webm")
+          <iframe src="http://player.vimeo.com/video/50351160?api=1" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         .modal-footer
-          %a(href="#" class="btn btn-primary" data-dismiss="modal") Close
+          %a(href="#" class="btn btn-primary btn-closeVid" data-dismiss="modal") Close
   
       %section.details.practice
         .desc
