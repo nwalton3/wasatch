@@ -127,7 +127,7 @@ section.details {
 
 
 
-#myModal {
+.modal {
   width:96%;
   margin-left:-47%;
   .modal-body {
@@ -151,7 +151,7 @@ section.end {
 
 @media all and (min-width:300px) {
 
-  #myModal {
+  .modal {
     width:288px;
     margin-left:-144px;
     .modal-body {
@@ -169,7 +169,7 @@ section.end {
 
 @media all and (min-width:400px) {
 
-  #myModal {
+  .modal {
     width:384px;
     margin-left:-192px;
     iframe {
@@ -185,7 +185,7 @@ section.end {
 
 @media all and (min-width:500px) {
 
-  #myModal {
+  .modal {
     width:480px;
     margin-left:-240px;
     .modal-body {
@@ -204,7 +204,7 @@ section.end {
 
 @media all and (min-width:600px) {
 
-  #myModal {
+  .modal {
     width:520px;
     margin-left:-260px;
     iframe {
@@ -223,7 +223,7 @@ section.end {
 
 @media all and (min-width:760px) {
 
-  #myModal {
+  .modal {
     width:620px;
     margin-left:-310px;
     iframe {
@@ -265,7 +265,7 @@ section.end {
 
 @media all and (min-width:920px) {
 
-  #myModal {
+  .modal {
     width:740px;
     margin-left:-370px;
     iframe {
