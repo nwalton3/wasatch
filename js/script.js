@@ -9,18 +9,18 @@ $(function(){ // on page load
 	// Initialize stuff
 	$('video,audio').mediaelementplayer(/* Options */);
 	
-	$('#myModal').modal({show: false});
+	$('div.modal').modal({show: false});
 	$('a.modal-video')
     .on('click', function(e){
-      startPlayer('#myModal iframe');
+      startPlayer('#video-popup iframe');
     });
-	$('#myModal .modal-footer')
+	$('#video-popup .modal-footer')
 	  .on('click', '.btn-closeVid', function(e){
-      pausePlayer('#myModal iframe');
+      pausePlayer('#video-popup iframe');
 	  });
 	$('body')
 	  .on('click', '.modal-backdrop', function(e){
-      pausePlayer('#myModal iframe');
+      pausePlayer('#video-popup iframe');
 	  });
 		
 	//$('.promo h1').fitText(0.9, {minFontSize: '24px', maxFontSize: '52px'});
@@ -108,9 +108,9 @@ function pausePlayer(frame) {
   if(Modernizr.postmessage) {
      player.api('pause');       
   } else {
-    var src = $('#myModal iframe').attr('src');
-    $('#myModal iframe').attr('src',''); 
-    $('#myModal iframe').attr('src',src);
+    var src = $('#video-popup iframe').attr('src');
+    $('#video-popup iframe').attr('src',''); 
+    $('#video-popup iframe').attr('src',src);
   }
 
 }

@@ -127,7 +127,7 @@ section.details {
 
 
 
-.modal {
+div.modal {
   width:96%;
   margin-left:-47%;
   .modal-body {
@@ -140,7 +140,11 @@ section.details {
     width:100%;
     height: 150px;
   }
+  img {
+    margin:0 auto;
+  }
 }
+
 
 section.end {
   padding-top:24px; }
@@ -151,7 +155,7 @@ section.end {
 
 @media all and (min-width:300px) {
 
-  .modal {
+  #video-popup {
     width:288px;
     margin-left:-144px;
     .modal-body {
@@ -169,7 +173,7 @@ section.end {
 
 @media all and (min-width:400px) {
 
-  .modal {
+  #video-popup {
     width:384px;
     margin-left:-192px;
     iframe {
@@ -185,7 +189,7 @@ section.end {
 
 @media all and (min-width:500px) {
 
-  .modal {
+  #video-popup {
     width:480px;
     margin-left:-240px;
     .modal-body {
@@ -204,7 +208,7 @@ section.end {
 
 @media all and (min-width:600px) {
 
-  .modal {
+  #video-popup {
     width:520px;
     margin-left:-260px;
     iframe {
@@ -223,7 +227,7 @@ section.end {
 
 @media all and (min-width:760px) {
 
-  .modal {
+  #video-popup {
     width:620px;
     margin-left:-310px;
     iframe {
@@ -265,7 +269,7 @@ section.end {
 
 @media all and (min-width:920px) {
 
-  .modal {
+  #video-popup {
     width:740px;
     margin-left:-370px;
     iframe {

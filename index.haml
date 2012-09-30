@@ -48,10 +48,10 @@
           %h3 Work at your own pace
           %p Over 200 high-quality videos covering the essential topics and skills. Concepts are thoroughly explained and demonstrated, and example problems are worked out in an easy-to-follow format.
           %a.example.modal-video(data-toggle="modal" href="#myModal") View example video
-        %a.image.modal-video(data-toggle="modal" href="#myModal")
+        %a.image.modal-video(data-toggle="modal" href="#video-popup")
           %img(src="img/home-video.jpg" alt="a professor demonstrating a chemistry experiment (image taken from one of the Wasatch Education videos")
         
-      #myModal.modal.hide.fade
+      #video-popup.modal.hide.fade
         .modal-body
           <iframe src="http://player.vimeo.com/video/50351160?api=1" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         .modal-footer
@@ -61,16 +61,23 @@
         .desc
           %h3 Get real-world practice
           %p Lots of practice problems that include hints, feedback, and automatic grading, as well as practice exams that simulate the actual test-taking experience
-          %a.example(href="#") VIEW EXAMPLE PROBLEMS
-        %a.image(href="#")
+          %a.example.modal-image(data-toggle="modal" href="#practice-popup") VIEW EXAMPLE PROBLEMS
+        %a.image.modal-image(data-toggle="modal" href="#practice-popup")
           %img(src="img/home-practice.png" alt="A screen shot of the practice environment")
+
+      #practice-popup.modal.hide.fade
+        .modal-body
+          %img(src="img/home-practice-lg.png" alt="A screen shot of the practice environment")
+        .modal-footer
+          %a(href="#" class="btn btn-primary btn-closePractice" data-dismiss="modal") Close
+
   
       %section.details.study-guides
         .desc
           %h3 Understand concepts in-depth
           %p A study guide is included with each video to help students take notes and identify key concepts
           %a.example(href="docs/Introduction-To-Gases.pdf") VIEW EXAMPLE STUDY GUIDE
-        %a.image(href="docs/Introduction-To-Gases.pdf")
+        %a.image(href="docs/introduction-to-gases.pdf")
           %img(src="img/home-study2.png" alt="A screen shot of a study guide")
       
       %section.details.tutors
@@ -85,16 +92,16 @@
         .desc
           %h3 Create personalized study plans
           %p Diagnostic exams identify areas of strength and weakness to help you focus better on the areas that need work
-          %a.example(href="#") VIEW EXAMPLES    
-        %a.image(href="#")
+          %a.example(href="docs/diagnostics.pdf") VIEW EXAMPLES    
+        %a.image(href="docs/diagnostics.pdf")
           %img(src="img/home-diagnostic.png" alt="A screen shot of a diagnostics exam")
   
       %section.details.study-maps
         .desc
           %h3 Track your progress
           %p Each subject in the AP, IB, or A Level curriculum is organized into a Topic Map for a concise overview and for easy access to specific subjects. Color coding is used to track topics that have been covered or topics that still need work.
-          %a.example(href="#") VIEW STUDY MAPS
-        %a.image(href="#")
+          %a.example(href="ib-map.html") VIEW STUDY MAPS
+        %a.image(href="ib-map.html")
           %img(src="img/home-study.png" alt="A screen shot of a study map")
   
       %section.end

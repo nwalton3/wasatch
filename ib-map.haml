@@ -1,0 +1,35 @@
+!!! 5
+
+%html
+
+  %head
+  
+    %title Wasatch Education : IB Map
+  
+    = Haml::Engine.new(File.read('/Volumes/Macintosh HD/Applications/MAMP/htdocs/wasatch/_header.html.haml')).render
+    
+    %link(rel="stylesheet" media="all and (min-width:1px)" href="css/dashboard.css")
+  
+  %body
+    %header.main
+      %p(class="sign-in")
+        %span Student Name
+        %a(href="index.html") Sign&nbsp;out
+      %nav
+        %a.first My account
+      %h1(class="main")
+        %a(href="index.html") Wasatch Education
+ 
+    .main
+    
+      = Haml::Engine.new(File.read('/Volumes/Macintosh HD/Applications/MAMP/htdocs/wasatch/_map-clean.html.haml')).render
+                
+    %footer.main
+      %p &copy; Copyright 2012
+  
+    %script(src="js/jquery.min.js")
+    %script(src="mediaelement/build/mediaelement-and-player.min.js")
+    %script(src="js/plugins.js")
+    %script(src="js/script.js")
+  
+  

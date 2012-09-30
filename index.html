@@ -59,11 +59,11 @@
           <p>Over 200 high-quality videos covering the essential topics and skills. Concepts are thoroughly explained and demonstrated, and example problems are worked out in an easy-to-follow format.</p>
           <a class='example modal-video' data-toggle='modal' href='#myModal'>View example video</a>
         </div>
-        <a class='image modal-video' data-toggle='modal' href='#myModal'>
+        <a class='image modal-video' data-toggle='modal' href='#video-popup'>
           <img alt='a professor demonstrating a chemistry experiment (image taken from one of the Wasatch Education videos' src='img/home-video.jpg'>
         </a>
       </section>
-      <div class='modal hide fade' id='myModal'>
+      <div class='modal hide fade' id='video-popup'>
         <div class='modal-body'>
           <iframe src="http://player.vimeo.com/video/50351160?api=1" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
         </div>
@@ -75,19 +75,27 @@
         <div class='desc'>
           <h3>Get real-world practice</h3>
           <p>Lots of practice problems that include hints, feedback, and automatic grading, as well as practice exams that simulate the actual test-taking experience</p>
-          <a class='example' href='#'>VIEW EXAMPLE PROBLEMS</a>
+          <a class='example modal-image' data-toggle='modal' href='#practice-popup'>VIEW EXAMPLE PROBLEMS</a>
         </div>
-        <a class='image' href='#'>
+        <a class='image modal-image' data-toggle='modal' href='#practice-popup'>
           <img alt='A screen shot of the practice environment' src='img/home-practice.png'>
         </a>
       </section>
+      <div class='modal hide fade' id='practice-popup'>
+        <div class='modal-body'>
+          <img alt='A screen shot of the practice environment' src='img/home-practice-lg.png'>
+        </div>
+        <div class='modal-footer'>
+          <a class='btn btn-primary btn-closePractice' data-dismiss='modal' href='#'>Close</a>
+        </div>
+      </div>
       <section class='details study-guides'>
         <div class='desc'>
           <h3>Understand concepts in-depth</h3>
           <p>A study guide is included with each video to help students take notes and identify key concepts</p>
           <a class='example' href='docs/Introduction-To-Gases.pdf'>VIEW EXAMPLE STUDY GUIDE</a>
         </div>
-        <a class='image' href='docs/Introduction-To-Gases.pdf'>
+        <a class='image' href='docs/introduction-to-gases.pdf'>
           <img alt='A screen shot of a study guide' src='img/home-study2.png'>
         </a>
       </section>
@@ -105,9 +113,9 @@
         <div class='desc'>
           <h3>Create personalized study plans</h3>
           <p>Diagnostic exams identify areas of strength and weakness to help you focus better on the areas that need work</p>
-          <a class='example' href='#'>VIEW EXAMPLES</a>
+          <a class='example' href='docs/diagnostics.pdf'>VIEW EXAMPLES</a>
         </div>
-        <a class='image' href='#'>
+        <a class='image' href='docs/diagnostics.pdf'>
           <img alt='A screen shot of a diagnostics exam' src='img/home-diagnostic.png'>
         </a>
       </section>
@@ -115,9 +123,9 @@
         <div class='desc'>
           <h3>Track your progress</h3>
           <p>Each subject in the AP, IB, or A Level curriculum is organized into a Topic Map for a concise overview and for easy access to specific subjects. Color coding is used to track topics that have been covered or topics that still need work.</p>
-          <a class='example' href='#'>VIEW STUDY MAPS</a>
+          <a class='example' href='ib-map.html'>VIEW STUDY MAPS</a>
         </div>
-        <a class='image' href='#'>
+        <a class='image' href='ib-map.html'>
           <img alt='A screen shot of a study map' src='img/home-study.png'>
         </a>
       </section>
