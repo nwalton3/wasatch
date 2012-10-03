@@ -1,0 +1,51 @@
+body
+  font-size: $base-font-size
+  font-family: "open-sans", "Open Sans", sans-serif
+  line-height: $base-line-height
+  //+debug-vertical-alignment()
+
+
+header
+  +responsive(300)
+    padding: 0 9%
+
+  +responsive(600)
+    position: relative
+
+
+section
+  +responsive(300)
+    width: 82%
+  
+  +responsive(1020)
+    &.video
+      width: 56.64%
+      margin: 0 0 0 9%
+      float: left
+    
+    &.study-map
+      width: 56.64%
+      margin: 0 0 0 9%
+      clear: left
+      padding-top: 1px
+      margin-top: -1px
+  
+    &.study-guide, &.related, &.similar
+      width: 21.875%
+      float: right
+      clear: right
+      margin: 0 9% 0 0
+
+
+footer, p
+  +responsive(300)
+    width: 82%
+
+
+section.video
+  +responsive(600)
+    width: 82%
+
+
+div.main
+  +background-image(linear-gradient(#eee, #f7f7f7 50%))

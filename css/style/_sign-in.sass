@@ -1,0 +1,26 @@
+p.sign-in
+  color: #bbb
+  +rhythm(0.5, 0, 0, 0, 1em)
+  
+  +responsive(600)
+    z-index: 2
+    position: absolute
+    right: 9%
+    bottom: 1.4em
+    text-align: right
+
+  a
+    +link-colors(#777, #555, #777, #777, #777)
+    text-decoration: none
+    
+    &:hover
+      text-decoration: underline
+    
+    &:before
+      content: "/ "
+    
+    +responsive(600)
+      display: block
+
+      &:before
+        content: ""

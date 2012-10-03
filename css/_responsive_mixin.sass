@@ -1,0 +1,19 @@
+// Responsive Mixin
+
+@mixin responsive($width)
+  
+  @if $width == 300
+    @media all and (min-width:300px)
+      @content
+  
+  @if $width == 600
+    @media all and (min-width:600px)
+      @content
+  
+  @if $width == 900
+    @media all and (min-width:900px)
+      @content
+  
+  @if $width == 1020
+    @media all and (min-width:1020px)
+      @content
