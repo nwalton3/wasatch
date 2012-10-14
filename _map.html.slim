@@ -1,0 +1,18 @@
+- topics.each do |topic|
+  
+  li class=topic["type"]
+    span.number = topic["no"]
+    
+    -if topic["status"] == "incomplete"
+      span.status rel="tooltip" data-original-title="#{topic["items_finished"]} out of #{topic["total_items"]} finished"
+    -else
+      span.status rel="tooltip" data-original-title=topic["status"]
+    
+    -unless topic["link"].empty?
+      a href=topic["link"] = topic["name"]
+    -else
+      = topic["name"]
+    
+    -if topic["subs"]
+      ol
+        == render "_map.html.slim", :locals => { :topics => topic["subs"] }

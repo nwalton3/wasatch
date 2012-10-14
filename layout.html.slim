@@ -6,28 +6,52 @@ html
     meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"
     meta name="viewport" content="width=device-width"
     
-    - @stylesheets.each do |stylesheet|
-      link rel="stylesheet" href="css/#{stylesheet}.css"
+    link rel="stylesheet" href="css/mobile.css"
+    link rel="stylesheet" href="css/bootstrap-all.css"
+    link rel="stylesheet" href="mediaelement/build/mediaelementplayer.min.css"
+    link rel="stylesheet" href="css/style.css" media="all and (min-width:1px)"
     
-    link rel="stylesheet" media="all and (min-width:1px)" href="css/#{@css_file}.css"
-    script src="http://use.typekit.com/qmd4aav.js"
+    - if @css_file
+      link rel="stylesheet" media="all and (min-width:1px)" href="css/#{@css_file}.css"
+    
+    script src="http://use.typekit.com/qmd4aav.js" type="text/javascript"
     
     javascript:
-      try {
-        Typekit.load();
-      }
-      catch(e) {
-        alert(e)
-      }
+      try { Typekit.load(); } catch(e) { alert(e) }
     
     script src="js/modernizr.js"
     
   body
+  
+    header
+      - if @title == "Wasatch Education"
+        p.sign-in
+          a href="ib_dashboard.html" Sign in
     
-    == yield
+        nav
+          a.first Plans & Pricing
+  
+      - else
+        p.sign-in
+          span Student Name
+          a href="index.html" Sign out
     
-    footer.main
+        nav
+          - unless @title == "Wasatch Education: My Dashboard"
+            a.first href="ib_dashboard.html" Dashboard
+          a My account
+      
+      h1.main
+        a href="index.html" Wasatch Education
+  
+    
+    .main
+      == yield
+    
+    footer
       p &copy; Copyright 2012
     
-    - @scripts.each do |script|
-      script src="js/#{script}"
+    script src="js/jquery.min.js"
+    script src="mediaelement/build/mediaelement-and-player.min.js"
+    script src="js/plugins.js"
+    script src="js/script.js"

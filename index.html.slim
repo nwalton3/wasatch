@@ -1,64 +1,51 @@
-header.main
-  p.sign-in
-    a href="dashboard.html" Sign in
-  
-  nav
-    a.first Plans & Pricing
-  
-  h1.main
-    a href="index.html" Wasatch Education
-
-.main
-  section.promo
-    .promo
-      h1
-        markdown:
-          **AP**, **IB**, and **A Level**  
-          test prep & study support
-      
-      .signup
-        p
-          | learn more below
-          span or
-          a.btn.btn-success.btn-large href="dashboard.html" Sign up
-      
-    img src="img/main4.png" alt=""
+section.promo
+  .promo
+    h1
+      markdown:
+        **AP,** **IB,** and **A Level**  
+        test prep & study support
     
-  section.description
-    p.leader
-      span.motto Your best resource for advanced chemistry
-      | Course study help
-      em or
-      | In-depth exam review
+    .signup
+      p
+        | learn more below
+        span or
+        a.btn.btn-success.btn-large href="ib_dashboard.html" Sign up
+    
+  img src="img/main4.png" alt=""
   
-  section.details.videos
+section.description
+  p.leader
+    span.motto Your best resource for advanced chemistry
+    | Course study help 
+    em or 
+    | In-depth exam review
+
+section.details.videos
+  .desc
+    h3 Work at your own pace
+    p Over 200 high-quality videos covering the essential topics and skills. Concepts are thoroughly explained and demonstrated, and example problems are worked out in an easy-to-follow format.
+    a.example.modal-video data-toggle="modal" href="#myModal" View example video
+  
+  a.image.modal-video data-toggle="modal" href="#video-popup"
+    img src="img/home-video.jpg" alt="a professor demonstrating a chemistry experiment (image taken from one of the Wasatch Education videos)"
+
+#video-popup.modal.hide.fade
+  .modal-body
+    <iframe src="http://player.vimeo.com/video/50351160?api=1" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+  .modal-footer
+    a.btn.btn-primary.btn-closeVid href="#" data-dismiss="modal"
+
+- @detail_sections.each do |section|
+  section.details class=section.class
     .desc
-      h3 Work at your own pace
-      p Over 200 high-quality videos covering the essential topics and skills. Concepts are thoroughly explained and demonstrated, and example problems are worked out in an easy-to-follow format.
-      a.example.modal-video data-toggle="modal" href="#myModal" View example video
-    a.image.modal-video data-toggle="modal" href="#myModal"
-      img src="img/home-video.jpg" alt="a professor demonstrating a chemistry experiment (image taken from one of the Wasatch Education videos"
+      h3 = section.title
+      p = section.desc
+      a.example href=section.url = section.link
+  
+    a.image href=section.url
+      img src="img/#{section.img_src}" alt=section.img_alt
 
-  /
-    #myModal.modal.hide.fade
-      .modal-body
-        video#player1 width="" height="" poster="media/2-Charles-Law.png" controls="controls" preload="none"
-          source type="video/m4v" src="media/charles-law.m4v"
-          source type="video/webm" src="media/charles-law.webm"
-      .modal-footer
-        a.btn.btn-primary href="#" data-dismiss="modal" Close
-  
-  - @detail_sections.each do |section|
-    section.details class=section.class
-      .desc
-        h3 = section.title
-        p = section.desc
-        a.example href=section.url = section.link
-    
-      a.image href=section.url
-        img src="img/#{section.img_src}" alt=section.img_alt
-  
-  section.end
-    a.btn.btn-success.btn-large href="dashboard.html" Sign up
-    span or
-    a href="#" see pricing details
+section.end
+  a.btn.btn-success.btn-large href="ib_dashboard.html" Sign up
+  span  or 
+  a href="#" see pricing details

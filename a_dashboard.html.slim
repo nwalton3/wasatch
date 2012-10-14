@@ -1,0 +1,88 @@
+section.profile
+  h2 Study Profile
+  
+  .achievements
+    span.title Achievement: 
+    span.callout Scholar
+    a 1.023 points earned
+    a 47 points to next level
+  
+  a Member since April 2012
+  a 36 study hours spent
+  a 43 videos viewed
+  a 134 problems worked
+  a 1 diagnostic exam taken
+  a 2 practice exams taken
+
+section.forum
+  h2 IB Chemistry Forum
+  .achievements
+    span.title Level: 
+    span.callout Chem whiz
+    a 19 questions asked
+    a 285 answers given
+  .commenter
+    span.callout Top commenter
+    a 73 helpful answers
+  a.btn.btn-primary Go to forum
+
+section.study-map
+  h2 Study Map
+  
+  ol.standard
+    li.title AS Units
+    == render "_map.html.slim", :locals => { :topics => @as_topics }
+  
+  ol.higher
+    li.title A2 Units
+    == render "_map.html.slim", :locals => { :topics => @a2_topics }
+
+.floater
+  section.tutoring
+    h2 Tutoring
+    p You currently have live tutoring available
+    a.btn.btn-primary Start live tutoring session
+  
+  section.exams
+    h2 Exams
+    table
+      tr
+        td.done &nbsp;
+        td Diagnostic Exam
+        td &nbsp;
+        td
+          a results
+      tr
+        td.done &nbsp;
+        td Practice Exam 1
+        td 76%
+        td
+          a results
+      tr
+        td.done &nbsp;
+        td Practice Exam 2
+        td 83%
+        td
+          a results
+      tr
+        td.done &nbsp;
+        td Practice Exam 3
+        td &nbsp;
+        td
+          a take exam
+          
+  section.recent.related
+    h2 Recently Visited
+    ol
+      li.video
+        span 1.4.4
+        a href="charles.html"
+          | Charle's Law
+      li.video
+        span 1.4.4
+        a href="ideal.html"
+          | Ideal Gas Law
+      li.video
+        span 1.4.4
+        a href="molar.html"
+          | Molar volume
