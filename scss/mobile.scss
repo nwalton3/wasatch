@@ -84,7 +84,8 @@ body {
 
 div.main {
   padding-top:1px;
-  border-top: 1px solid #444; }
+  border-top: 1px solid #444;
+  padding-bottom: 3em; }
 
 section {
   border-bottom: 1px solid transparent; }
@@ -156,7 +157,7 @@ a.btn {
     color: #fff; } }
 
 footer {
-  margin-top: 3em;
+  margin-top: 0;
   background-color: #ddd;
   border-top:1px solid #bbb;
   border-bottom: 1px solid #ccc;
