@@ -7,7 +7,7 @@
 $(function(){ // on page load
 		
 	// Initialize stuff
-	$('video,audio').mediaelementplayer(/* Options */);
+	//$('video,audio').mediaelementplayer(/* Options */);
 	
 	$('div.modal').modal({show: false});
 	$('a.modal-video')
