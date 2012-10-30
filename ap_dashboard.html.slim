@@ -29,8 +29,21 @@ section.forum
 section.study-map
   h2 Study Map
   
-  ol
-    == render "_map.html.slim", :locals => { :topics => @topics }
+  ol.structure
+    li.title Structure of Matter
+    == render "_map.html.slim", :locals => { :topics => @topics_struc }
+  
+  ol.states
+    li.title States of Matter
+    == render "_map.html.slim", :locals => { :topics => @topics_state }
+
+  ol.reactions
+    li.title Reactions
+    == render "_map.html.slim", :locals => { :topics => @topics_react }
+
+  ol.descriptive
+    li.title Descriptive Chemistry
+    == render "_map.html.slim", :locals => { :topics => @topics_descr }
 
 .floater
   section.tutoring

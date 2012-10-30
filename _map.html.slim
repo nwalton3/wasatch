@@ -1,18 +1,25 @@
 - topics.each do |topic|
-  
-  li class=topic["type"]
-    span.number = topic["no"]
-    
-    -if topic["status"] == "incomplete"
-      span.status rel="tooltip" data-original-title="#{topic["items_finished"]} out of #{topic["total_items"]} finished"
-    -else
-      span.status rel="tooltip" data-original-title=topic["status"]
-    
-    -unless topic["link"].empty?
-      a href=topic["link"] = topic["name"]
-    -else
-      = topic["name"]
-    
-    -if topic["subs"]
+
+  -if topic["subs"]
+    li class=[topic["type"], topic["status_class"], "hasChildren"]
+
+      span.number = topic["no"]
+            
+      -unless topic["link"].empty?
+        a href=topic["link"] = topic["name"]
+      -else
+        a href="#" = topic["name"]
+      
       ol
         == render "_map.html.slim", :locals => { :topics => topic["subs"] }
+
+
+  -if !topic["subs"]
+    li class=[topic["type"], topic["status_class"]]
+    
+      span.number = topic["no"]
+            
+      -unless topic["link"].empty?
+        a href=topic["link"] = topic["name"]
+      -else
+        = topic["name"]

@@ -6,6 +6,12 @@ require 'pp'
 
 layout 'layout.html.slim'
 ignore /\/_.*/
+ignore /css-less/
+ignore /scss/
+ignore /data/
+ignore /.git/
+ignore /.sass-cache/
+
 root = Dir.pwd
 
 
@@ -42,7 +48,10 @@ end
 before 'ap_dashboard.html.slim' do
   @title = "Wasatch Education: My Dashboard"
   @css_file = "dashboard"
-  @topics = get_topics('0Apki4sWS3XZydHcyWGpwTDlIQkNPNUF2ZlVYU0RqZGc')
+  @topics_struc = get_topics('0Aq3rJXnRBL9DdHhMbk45UElNUU4tYjVoNkFyb3V4Ync')
+  @topics_state = get_topics('0Aq3rJXnRBL9DdEQyZG1JWjF2TGIwaUdOZXV3cnFwV3c')
+  @topics_react = get_topics('0Aq3rJXnRBL9DdEJ2cjZqdEZ0Y2tWYXJSeHRseVM5cHc')
+  @topics_descr = get_topics('0Aq3rJXnRBL9DdG42Q1pleUFwQmZMWmF3dlA3dUNLQWc')
 end
 
 before 'a_dashboard.html.slim' do
@@ -83,6 +92,17 @@ end
 helpers do
   def recursive(i=0)
     $arr[i].each do |row|
+            
+      if row["status"] == "incomplete"
+        row["status_class"] = "part"
+      elsif row["status"] == "not started"
+        row["status_class"] = "no"
+      elsif row["status"] == "done"
+        row["status_class"] = "yes"
+      else
+        row["status_class"] = "no"
+      end      
+
       subs = []
     
       recursive(i+1) if $arr[i+1]
@@ -90,23 +110,37 @@ helpers do
       if (i+1) < ($arr.length)      
         $arr[i+1].each do |sub_row|
           if sub_row["belongs_to"] == row["no"]
+          
+            if sub_row["status"] == "incomplete"
+              sub_row["status_class"] = "part"
+            elsif sub_row["status"] == "not started"
+              sub_row["status_class"] = "no"
+            elsif sub_row["status"] == "done"
+              sub_row["status_class"] = "yes"
+            else
+              sub_row["status_class"] = "no"
+            end
+            
             subs << sub_row
           end
         end
-      
-        subs_hash = { "subs" => subs }
-        row.merge!(subs_hash)
+        
+        if subs.length > 0
+          subs_hash = { "subs" => subs }
+          row.merge!(subs_hash)
+        end
       end
     end
   end
 
   def get_topics(key)
-    google_session = GoogleDrive.login('username@gmail.com', 'password')
+    google_session = GoogleDrive.login('wasatcheducation@gmail.com', 'warmly smiling zebras')
     worksheets = google_session.spreadsheet_by_key(key).worksheets()
     $arr = []
 
     worksheets.each do |worksheet|
       arr = worksheet.list.to_hash_array
+  
       $arr << arr
     end
 
