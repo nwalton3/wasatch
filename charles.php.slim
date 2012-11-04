@@ -1,0 +1,46 @@
+section.video
+  div.video
+    iframe src="http://player.vimeo.com/video/50351160" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen
+  
+  a.prev
+    | Previous: 
+    span
+      | 1.4.4 Avogadro's Law
+  
+  a.next
+    | Next: 
+    span
+      | 1.4.4 Boyle's Law
+
+section.study-guide
+  h2 Study Guide
+  a.btn.btn-success.btn-large.study-guide href="#"
+    | Download Study Guide
+    div
+      | Charles' Law
+
+section.related
+  h2 Related Topics
+  .related
+    ol
+      li.video
+        a href="molar.html" Mole concept
+      li.video
+        | Avogadro's Law
+      li.video
+        | Boyle's Law
+      li.video
+        a href="ideal.html" Ideal Gas Law
+      li.problems
+        | Ideal Gas Problems
+
+section.study-map
+  h2 Study Map
+  
+  ol.standard
+    li.title Standard Level
+    == render "_map.html.slim", :locals => { :topics => @standard_topics }
+  
+  ol.higher
+    li.title Higher Level
+    == render "_map.html.slim", :locals => { :topics => @higher_topics }

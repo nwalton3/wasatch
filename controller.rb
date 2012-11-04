@@ -14,11 +14,13 @@ ignore /.sass-cache/
 
 root = Dir.pwd
 
+use_google = false
 
 # Index
-before 'index.html.slim' do
+before 'index.php.slim' do
   @title = "Wasatch Education"
   @css_file = "home"
+  @auth = false
   @detail_sections = []
   
   CSV.read(File.join(root, 'data/index-details.csv')).each do |row|
@@ -38,48 +40,110 @@ end
 
 
 # Dashboard
-before 'ib_dashboard.html.slim' do
-  @title = "Wasatch Education: My Dashboard"
+
+before 'dashboard.php.slim' do
+  @title = "My Dashboard"
   @css_file = "dashboard"
-  @standard_topics = get_topics('0Apki4sWS3XZydFo4R1ppVnFQakswZjVmdEdsMWNaM1E')
-  @higher_topics = get_topics('0Apki4sWS3XZydFZhMF9pUEZpSUR2eHE5WjdUWHJUX3c')
+  @auth = true
+end
+
+before 'ib_dashboard.html.slim' do
+  @title = "My Dashboard"
+  @css_file = "dashboard"
+  @auth = true
+  if use_google == true
+    @standard_topics = get_topics('0Apki4sWS3XZydFo4R1ppVnFQakswZjVmdEdsMWNaM1E')
+    @higher_topics = get_topics('0Apki4sWS3XZydFZhMF9pUEZpSUR2eHE5WjdUWHJUX3c')
+  else
+    @standard_topics = []
+    @higher_topics = []
+  end
 end
 
 before 'ap_dashboard.html.slim' do
-  @title = "Wasatch Education: My Dashboard"
+  @title = "My Dashboard"
   @css_file = "dashboard"
-  @topics_struc = get_topics('0Aq3rJXnRBL9DdHhMbk45UElNUU4tYjVoNkFyb3V4Ync')
-  @topics_state = get_topics('0Aq3rJXnRBL9DdEQyZG1JWjF2TGIwaUdOZXV3cnFwV3c')
-  @topics_react = get_topics('0Aq3rJXnRBL9DdEJ2cjZqdEZ0Y2tWYXJSeHRseVM5cHc')
-  @topics_descr = get_topics('0Aq3rJXnRBL9DdG42Q1pleUFwQmZMWmF3dlA3dUNLQWc')
+  @auth = true
+  if use_google == true
+    @topics_struc = get_topics('0Aq3rJXnRBL9DdHhMbk45UElNUU4tYjVoNkFyb3V4Ync')
+    @topics_state = get_topics('0Aq3rJXnRBL9DdEQyZG1JWjF2TGIwaUdOZXV3cnFwV3c')
+    @topics_react = get_topics('0Aq3rJXnRBL9DdEJ2cjZqdEZ0Y2tWYXJSeHRseVM5cHc')
+    @topics_descr = get_topics('0Aq3rJXnRBL9DdG42Q1pleUFwQmZMWmF3dlA3dUNLQWc')
+  else
+    @topics_struc = []
+    @topics_state = []
+    @topics_react = []
+    @topics_descr = []
+  end
 end
 
 before 'a_dashboard.html.slim' do
-  @title = "Wasatch Education: My Dashboard"
+  @title = "My Dashboard"
   @css_file = "dashboard"
-  @as_topics = get_topics('0Apki4sWS3XZydEpub1BuVzN0NXF6UGRvX1hfMWFuZVE')
-  @a2_topics = get_topics('0Apki4sWS3XZydFlWUHV1amY0emwxbm9KMlNCWG9ka2c')
+  @auth = true
+  if use_google == true
+    @as_topics = get_topics('0Apki4sWS3XZydEpub1BuVzN0NXF6UGRvX1hfMWFuZVE')
+    @a2_topics = get_topics('0Apki4sWS3XZydFlWUHV1amY0emwxbm9KMlNCWG9ka2c')
+  else
+    @as_topics = []
+    @a2_topics = []
+  end
 end
 
 
 # Individual Videos
-before 'charles.html.slim' do
-  @title = "Wasatch Education: Charle's Law"
-  @standard_topics = get_topics('0Apki4sWS3XZydFo4R1ppVnFQakswZjVmdEdsMWNaM1E')
-  @higher_topics = get_topics('0Apki4sWS3XZydFZhMF9pUEZpSUR2eHE5WjdUWHJUX3c')
+before 'charles.php.slim' do
+  @title = "Charles' Law"
+  @auth = true
+  if use_google == true
+    @standard_topics = get_topics('0Apki4sWS3XZydFo4R1ppVnFQakswZjVmdEdsMWNaM1E')
+    @higher_topics = get_topics('0Apki4sWS3XZydFZhMF9pUEZpSUR2eHE5WjdUWHJUX3c')
+  else
+    @standard_topics = []
+    @higher_topics = []
+  end
 end
 
-before 'ideal.html.slim' do
-  @title = "Wasatch Education: Ideal Gas Law"
-  @standard_topics = get_topics('0Apki4sWS3XZydFo4R1ppVnFQakswZjVmdEdsMWNaM1E')
-  @higher_topics = get_topics('0Apki4sWS3XZydFZhMF9pUEZpSUR2eHE5WjdUWHJUX3c')
+before 'ideal.php.slim' do
+  @title = "Ideal Gas Law"
+  @auth = true
+  if use_google == true
+    @standard_topics = get_topics('0Apki4sWS3XZydFo4R1ppVnFQakswZjVmdEdsMWNaM1E')
+    @higher_topics = get_topics('0Apki4sWS3XZydFZhMF9pUEZpSUR2eHE5WjdUWHJUX3c')
+  else
+    @standard_topics = []
+    @higher_topics = []
+  end
 end
 
-before 'molar.html.slim' do
-  @title = "Wasatch Education: Molar Volume"
-  @standard_topics = get_topics('0Apki4sWS3XZydFo4R1ppVnFQakswZjVmdEdsMWNaM1E')
-  @higher_topics = get_topics('0Apki4sWS3XZydFZhMF9pUEZpSUR2eHE5WjdUWHJUX3c')
+before 'molar.php.slim' do
+  @title = "Molar Volume"
+  @auth = true
+  if use_google == true
+    @standard_topics = get_topics('0Apki4sWS3XZydFo4R1ppVnFQakswZjVmdEdsMWNaM1E')
+    @higher_topics = get_topics('0Apki4sWS3XZydFZhMF9pUEZpSUR2eHE5WjdUWHJUX3c')
+  else
+    @standard_topics = []
+    @higher_topics = []
+  end
 end
+
+
+# Pricing
+before 'pricing.php.slim' do
+  @title = "Pricing"
+  @css_file = "pricing"
+  @auth = false
+end
+
+# Signup
+before 'signup.php.slim' do
+  @title = "Sign Up"
+  @script_file = "signup"
+  @css_file = "signup"
+  @auth = false
+end
+
 
 
 # 404

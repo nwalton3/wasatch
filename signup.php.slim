@@ -1,0 +1,40 @@
+
+
+.jumbotron
+  .container
+    h2 Sign up
+    p.lead It's super easy to get started
+
+.container.form-container
+  form.form-horizontal action="payment.php" method="post"
+    .control-group
+      label.control-label.large-input for="emailInput" Email
+      .controls
+        input.input-large type="text" id="emailInput" name="emailInput" placeholder="email@example.com"
+    
+    .control-group
+      label.control-label.large-input for="passphraseInput" Passphrase
+      .controls
+        input.input-xlarge type="text" id="passphraseInput" name="passphraseInput" placeholder="i.e. 'grumpy green gorillas'"
+  
+    .control-group
+      label.control-label for="planInput" Plan
+      .controls
+        label.radio
+          input type="radio" name="planRadios" id="planRadio1" value="Trial"
+          |  Trial
+        label.radio
+          input type="radio" name="planRadios" id="planRadio2" value="Individual"
+          |  Individual
+        label.radio
+          input type="radio" name="planRadios" id="planRadio3" value="Tutored"
+          |  Tutored
+        label.radio
+          input type="radio" name="planRadios" id="planRadio4" value="Educator"
+          |  Educator
+        
+    .form-actions
+      button.btn.btn-primary.btn-large type="submit" Get started
+
+script
+  | <?php echo 'var plan = ' . $_GET['plan']; ?>

@@ -4,7 +4,7 @@ section.profile
   .achievements
     span.title Achievement: 
     span.callout Scholar
-    a 1.023 points earned
+    a 1,023 points earned
     a 47 points to next level
   
   a Member since April 2012
@@ -26,24 +26,8 @@ section.forum
     a 73 helpful answers
   a.btn.btn-primary Go to forum
 
-section#study-map.study-map
+section.study-map
   h2 Study Map
-  
-  ol.structure
-    li.title Structure of Matter
-    == render "_map.html.slim", :locals => { :topics => @topics_struc }
-  
-  ol.states
-    li.title States of Matter
-    == render "_map.html.slim", :locals => { :topics => @topics_state }
-
-  ol.reactions
-    li.title Reactions
-    == render "_map.html.slim", :locals => { :topics => @topics_react }
-
-  ol.descriptive
-    li.title Descriptive Chemistry
-    == render "_map.html.slim", :locals => { :topics => @topics_descr }
 
 .floater
   section.tutoring
@@ -84,13 +68,13 @@ section#study-map.study-map
     ol
       li.video
         span 1.4.4
-        a href="charles.html"
-          | Charle's Law
+        a href="charles.php"
+          | Charles' Law
       li.video
         span 1.4.4
-        a href="ideal.html"
+        a href="ideal.php"
           | Ideal Gas Law
       li.video
         span 1.4.4
-        a href="molar.html"
+        a href="molar.php"
           | Molar volume

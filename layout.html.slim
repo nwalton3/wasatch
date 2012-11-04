@@ -1,3 +1,8 @@
+| <?php 
+    if(isset($_GET['c'])) { 
+      $c = $_GET['c'];
+    } 
+  ?>
 doctype html
 html
   head
@@ -23,12 +28,13 @@ html
   body
   
     header
-      - if @title == "Wasatch Education"
+      - if @auth == false
         p.sign-in
-          a href="ib_dashboard.html" Sign in
+          a href="#" Sign in
     
         nav
-          a.first Plans & Pricing
+          - unless @title == "Pricing"
+            a.first href="pricing.php" Plans & Pricing
   
       - else
         p.sign-in
@@ -36,12 +42,12 @@ html
           a href="index.html" Sign out
     
         nav
-          - unless @title == "Wasatch Education: My Dashboard"
-            a.first href="ib_dashboard.html" Dashboard
+          - unless @title == "My Dashboard"
+            a.first href="dashboard.php" Dashboard
           a My account
       
       h1.main
-        a href="index.html" Wasatch Education
+        a href="index.php" Wasatch Education
   
     
     .main
@@ -53,3 +59,53 @@ html
     script src="js/jquery.min.js"
     script src="js/plugins.js"
     script src="js/script.js"
+    
+    - if @script_file
+      script src="js/#{@script_file}.js"
+      
+    | <?php echo "<script>
+        var c = '" . $_GET['c'] . "';
+      </script>"; ?>
+      
+    javascript:
+      var curriculum = "";
+      if (c == 'ap') {
+        curriculum = 'AP';
+      } else if (c == 'ib') {
+        curriculum = 'IB';
+      } else if (c == 'a') {
+        curriculum = 'A Level';
+      }
+      
+      $(function(){
+        var title = $('title');
+        var h1 = $('h1.main');
+        var map = $('.study-map');
+        var links = $('a');
+        
+        if (curriculum !== "") {
+          title.html(curriculum + ": " + title.html());
+          h1.prepend('<div class="wasatch">Wasatch Education</div>').find('a').html(curriculum + " Chemistry");
+          links.each(function(){
+            var a = $(this);
+            var url = a.attr('href');
+            
+            if(url != "#" && url != "") {
+              url = url + "?c=" + c;
+              a.attr('href', url);
+            }
+          });
+        }
+        if(map.size() > 0 ) {
+          var mapUrl = c + "_dashboard.html";
+          map.load(mapUrl + ' #study-map', function(response, status, xhr){
+            if (status == "error") {
+              log(response);
+              return false;
+            } else {
+              $('#study-map').unwrap();
+              initializeStudyMap();
+            }
+          });
+        }
+      });
