@@ -1,7 +1,33 @@
 | <?php 
+    $c = '';
+    $u = '';
+    $p = '';
+    
+    // If $c is set
     if(isset($_GET['c'])) { 
       $c = $_GET['c'];
-    } 
+    }
+    
+    // If username or password have been sent
+    if(isset($_POST['u'])) { 
+      $u = $_POST['u'];
+      $u = strtolower($u);
+      $u = trim($u);
+    }
+    if(isset($_POST['p'])) { 
+      $p = $_POST['p'];
+      $p = strtolower($p);
+      $p = trim($p);
+    }
+    
+    // If username or password matches ap, a or ib
+    if($u == 'a' || $u == 'ap' || $u == 'ib') {
+      $c = $u;
+    } else if ($p == 'a' || $p == 'ap' || $p == 'ib') {
+      $c = $p;
+    } else {
+      // Nothing
+    }
   ?>
 doctype html
 html
@@ -39,12 +65,21 @@ html
       - else
         p.sign-in
           span Student Name
-          a href="index.html" Sign out
+          a href="index.php" Sign out
     
         nav
           - unless @title == "My Dashboard"
             a.first href="dashboard.php" Dashboard
           a My account
+      
+      #sign-in
+        form action="dashboard.php" method="post"
+          input type="text" placeholder="username" name="u" id="login_user"
+          input type="password" placeholder="password" name="p" id="login_pwd"
+          button.btn.btn-primary.btn-large type="submit" value="Sign in" Sign in
+          |  
+          a.btn.close-signin href="#" 
+            i.icon-remove
       
       h1.main
         a href="index.php" Wasatch Education
@@ -56,6 +91,9 @@ html
     footer
       p &copy; Copyright 2012
     
+    | <?php echo "<script>
+        var c = '" . $c . "';
+      </script>"; ?>
     script src="js/jquery.min.js"
     script src="js/plugins.js"
     script src="js/script.js"
@@ -63,9 +101,6 @@ html
     - if @script_file
       script src="js/#{@script_file}.js"
       
-    | <?php echo "<script>
-        var c = '" . $_GET['c'] . "';
-      </script>"; ?>
       
     javascript:
       var curriculum = "";
@@ -81,22 +116,34 @@ html
         var title = $('title');
         var h1 = $('h1.main');
         var map = $('.study-map');
-        var links = $('a');
+        var links = $('a');        
         
+        // Insert correct curriculum map
         if (curriculum !== "") {
           title.html(curriculum + ": " + title.html());
           h1.prepend('<div class="wasatch">Wasatch Education</div>').find('a').html(curriculum + " Chemistry");
           links.each(function(){
             var a = $(this);
             var url = a.attr('href');
-            
-            if(url != "#" && url != "") {
-              url = url + "?c=" + c;
-              a.attr('href', url);
+
+            if(url !== undefined) {
+                          
+              var php = url.indexOf('.php');
+              var query = url.indexOf('?');
+              
+              if(php != -1) {
+                if(query != -1) {
+                  url = url + "&c=" + c;
+                } else {
+                  url = url + "?c=" + c;
+                }
+                a.attr('href', url);
+              }
             }
           });
         }
-        if(map.size() > 0 ) {
+        
+        if(curriculum !== "" && map.size() > 0 ) {
           var mapUrl = c + "_dashboard.html";
           map.load(mapUrl + ' #study-map', function(response, status, xhr){
             if (status == "error") {

@@ -1,6 +1,7 @@
 /* Style.css */
 
 @import "compass";
+@import "inc/colors";
 
 $base-font-size: 16px;
 $base-line-height: 24px;
@@ -21,12 +22,17 @@ body {
 
 p.sign-in, nav {
   color: #bbb;
+  z-index:1;
   @include rhythm(0.5, 0, 0, 0, 1em);
   a {
     @include link-colors(#777, #555, #777, #777, #777);
     text-decoration: none;
     &:hover {
       text-decoration: underline; } } }
+
+p.sign-in {
+  z-index: 2;
+}
 
 p.sign-in a:before {
       content: "/ "; }
@@ -155,6 +161,33 @@ div.video {
 }
 
 
+// Sign in 
+#sign-in {
+  position: absolute;
+  right: 1em;
+  width: 225px;
+  top:-250px;
+  padding: 2em 1em 1em;
+  z-index: 100;
+  border: 1px solid #fff;
+  @include box-shadow(0 0 20px rgba(#000, 0.75));
+  @include background(linear-gradient($green2, $green4));
+  @include border-radius(5px);
+  h4 {
+    color: #fff;
+    margin-top: 0;
+  }
+  &.show {
+    top:-5px;
+  }
+  form {
+    margin-bottom: 0;
+  }
+  .close-signin {
+    float: right;
+  }
+}
+
 
 
 /* 300 px */
@@ -182,7 +215,6 @@ div.video {
       right: 9%;
       padding-right:4.5em; } }
   p.sign-in {
-    z-index: 2;
     position: absolute;
     right: 9%;
     bottom: 1.4em;

@@ -1,9 +1,7 @@
 section.promo
   .promo
     h1
-      markdown:
-        **AP,** **IB,** and **A Level**  
-        test prep & study support
+      <strong>AP,</strong> <strong>IB,</strong> and <strong>A Level</strong><br /> test prep & study support
     
     .signup
       p
@@ -15,7 +13,7 @@ section.promo
   
 section.description
   p.leader
-    span.motto Your best resource for advanced chemistry
+    span.motto Your best resource for <span class="advanced">advanced</span> chemistry
     | Course study help 
     em or 
     | In-depth exam review
@@ -24,16 +22,17 @@ section.details.videos
   .desc
     h3 Work at your own pace
     p Over 200 high-quality videos covering the essential topics and skills. Concepts are thoroughly explained and demonstrated, and example problems are worked out in an easy-to-follow format.
-    a.example.modal-video data-toggle="modal" href="#myModal" View example video
+    a.example.modal-video data-toggle="modal" href="#video-popup" View example video
   
   a.image.modal-video data-toggle="modal" href="#video-popup"
     img src="img/home-video.jpg" alt="a professor demonstrating a chemistry experiment (image taken from one of the Wasatch Education videos)"
 
 #video-popup.modal.hide.fade
   .modal-body
-    <iframe src="http://player.vimeo.com/video/50351160?api=1" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+    .video
+      iframe src="http://player.vimeo.com/video/50351160?api=1" width="100%" height="100%" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen
   .modal-footer
-    a.btn.btn-primary.btn-closeVid href="#" data-dismiss="modal"
+    a.btn.btn-primary.btn-closeVid href="#" data-dismiss="modal" Close
 
 - @detail_sections.each do |section|
   section.details class=section.class

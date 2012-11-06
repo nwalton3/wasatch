@@ -14,7 +14,7 @@ ignore /.sass-cache/
 
 root = Dir.pwd
 
-use_google = false
+use_google = true
 
 # Index
 before 'index.php.slim' do
